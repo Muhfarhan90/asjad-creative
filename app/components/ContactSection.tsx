@@ -52,6 +52,7 @@ export default function ContactSection() {
           >
             <p className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4">Kontak</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary">Hubungi Kami</h2>
+            <br />
             <div className="section-divider" />
           </motion.div>
 

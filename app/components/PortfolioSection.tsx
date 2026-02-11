@@ -4,83 +4,90 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import Image from 'next/image';
 
+type PortfolioItem = {
+  id: number
+  title: string
+  type: 'image' | 'video'
+  src: string
+  description: string
+}
 // Ganti src dengan path foto/video asli nanti
 // Untuk video, set type: 'video' dan src ke file video
-const portfolioItems = [
+const portfolioItems: PortfolioItem[] = [
   {
     id: 1,
     title: 'Rumah Minimalis Modern 2 Lantai',
-    type: 'image' as const,
+    type: 'image',
     src: '/images/porto1.jpeg',
     description: 'Desain rumah 2 lantai dengan konsep minimalis modern di lahan 10x15m.',
   },
   {
     id: 2,
     title: 'Rumah Modern dengan Garasi',
-    type: 'image' as const,
+    type: 'image',
     src: '/images/porto2.jpeg',
     description: 'Desain rumah modern 2 lantai dengan garasi luas dan fasad putih elegan.',
   },
   {
     id: 3,
     title: 'Rumah Minimalis Single Story',
-    type: 'image' as const,
+    type: 'image',
     src: '/images/porto3.jpeg',
     description: 'Rumah modern 1 lantai dengan kombinasi warna hangat dan desain terbuka.',
   },
   {
     id: 4,
     title: 'Sketsa Desain Arsitektur',
-    type: 'image' as const,
+    type: 'image',
     src: '/images/porto4.jpeg',
     description: 'Sketsa detail desain rumah tradisional dengan sentuhan modern dan material kayu.',
   },
   {
     id: 5,
     title: 'Visualisasi 3D Bird Eye View',
-    type: 'image' as const,
+    type: 'image',
     src: '/images/porto5.jpeg',
     description: 'Render 3D perspektif atas rumah modern dengan taman dan area parkir.',
   },
   {
     id: 6,
     title: 'Koleksi Desain Rumah Modern',
-    type: 'image' as const,
+    type: 'image',
     src: '/images/porto6.jpeg',
     description: 'Berbagai variasi desain rumah minimalis dengan berbagai sudut pandang.',
   },
   {
     id: 7,
     title: 'Site Plan & Denah Parkir',
-    type: 'image' as const,
+    type: 'image',
     src: '/images/porto7.jpeg',
     description: 'Perencanaan tapak dengan denah parkir dan layout jalan yang efisien.',
   },
   {
     id: 8,
     title: 'Rumah Modern 2 Lantai Abu-Abu',
-    type: 'image' as const,
+    type: 'image',
     src: '/images/porto8.jpeg',
     description: 'Desain rumah 2 lantai dengan fasad abu-abu modern dan balkon luas.',
   },
   {
     id: 9,
     title: 'Denah Lantai Rumah',
-    type: 'image' as const,
+    type: 'image',
     src: '/images/porto9.jpeg',
     description: 'Layout denah ruangan dengan pembagian ruang yang fungsional dan efisien.',
   },
   {
     id: 10,
     title: 'Rumah Modern Minimalis View Depan',
-    type: 'image' as const,
+    type: 'image',
     src: '/images/porto10.jpeg',
     description: 'Tampak depan rumah modern dengan carport dan desain fasad clean.',
   },
   {
     id: 11,
     title: 'Rumah Eco-Friendly Panel Surya',
-    type: 'image' as const,
+    type: 'image',
     src: '/images/porto11.jpeg',
     description: 'Desain rumah hemat energi dengan solar panel dan halaman belakang luas.',
   },
@@ -88,21 +95,21 @@ const portfolioItems = [
   {
     id: 12,
     title: 'Rumah Ramah Lingkungan View Samping',
-    type: 'image' as const,
+    type: 'image' ,
     src: '/images/porto12.jpeg',
     description: 'Perspektif samping rumah modern dengan atap solar panel dan taman hijau.',
   },
   {
     id: 13,
     title: 'Rumah Minimalis 2 Lantai Hitam',
-    type: 'image' as const,
+    type: 'image',
     src: '/images/porto13.jpeg',
     description: 'Desain rumah 2 lantai dengan warna gelap modern dan balkon minimalis.',
   },
   {
     id: 14,
     title: 'Rumah Tradisional Jawa Modern',
-    type: 'image' as const,
+    type: 'image',
     src: '/images/porto14.jpeg',
     description: 'Rumah kayu bergaya Jawa dengan sentuhan modern dan atap tradisional.',
   },
@@ -116,8 +123,6 @@ const portfolioItems = [
   //   description: 'Video walkthrough interior rumah modern.',
   // },
 ];
-
-type PortfolioItem = (typeof portfolioItems)[number];
 
 export default function PortfolioSection() {
   const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null);
