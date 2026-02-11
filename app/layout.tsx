@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
 const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],
@@ -22,6 +23,19 @@ export default function RootLayout({
     <html lang="id" className={poppins.variable}>
       <body className="antialiased font-sans">
         {children}
+         {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-Q00MMCP8V8"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-Q00MMCP8V8');
+          `}
+        </Script>
       </body>
     </html>
   );
